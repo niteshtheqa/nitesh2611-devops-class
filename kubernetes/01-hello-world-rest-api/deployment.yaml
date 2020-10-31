@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hello-world-java
+  name: hello-world-java
+  namespace: default
+spec:
+  minReadySeconds: 45
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-world-java
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: hello-world-java
+    spec:
+      containers:
+        - name: hello-world-java
+          image: nitesh2611/hello-world-java:0.0.1.RELEASE
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: "1"
+            requests:
+              memory: 256Mi
+              cpu: "0.2"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: hello-world-java
+  name: hello-world-java
+  namespace: default
+spec:
+  ports:
+  - nodePort: 30595
+    port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: hello-world-java
+    sessionAffinity: None
+  type: LoadBalancer
+  

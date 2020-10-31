@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   currency-exchange:
-    image: in28min/currency-exchange:0.0.1-RELEASE
+    image: nitesh2611/currency-exchange-microservice:0.0.1-RELEASE
     ports:
       - "8000:8000"
     restart: always
@@ -9,7 +9,7 @@ services:
       - currency-compose-network
 
   currency-conversion:
-    image: in28min/currency-conversion:0.0.1-RELEASE
+    image: nitesh2611/currency-conversion-mircoservice:0.0.1-RELEASE
     ports:
       - "8100:8100"
     restart: always
