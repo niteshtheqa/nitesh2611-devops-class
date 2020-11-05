@@ -1,0 +1,6 @@
+#Plan
+resource "aws_key_pair" "terraform-keys2" {
+  key_name   = "terraform-keys2"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCcSrYaVHWXxXB6Gd1ESYfHwl3ukpakq7Dnjf5BSqHyQJcJnzy1FFvA4oyhjwELbdhgGXIUyxabWIMFexH1YVv0o3C4P1piNsGTRJQyg2btWMcFAhZ+2P/aElZ394WBANqYMkpLMKtIesddiAJ1MHvHycsRSSmhr7xrNAuFHMmRDImxW4rjyycRFxpUK27xzxyFPELh1EY+7RBS6z4TEnVI6Wh+u7FGm12rtP1qvBqJJmFyb5VGVCNV1UKKnrue8cDkfgV8FVBIlflo6mdvOq0cLeCzkveTIr/IyMZVMoQiLVhc3av4rZe79udaj3+7gPt0ijk5yGH6roOeJQmN9Dz/ nitesh-mac@niteshs-iMac.local"
+  #public_key = "$file(~/aws/aws_keys/terraform-keys2.pub)"
+}
